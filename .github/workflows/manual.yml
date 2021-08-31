@@ -9,4 +9,6 @@ jobs:
     - uses: cachix/install-nix-action@v13
       with:
         nix_path: nixpkgs=channel:nixos-unstable
+    - run: uname -a
+    - run: nix --version
     - run: nix-build  --pure -E "with import <nixpkgs> {}; callPackage $PWD/default.nix {}"
